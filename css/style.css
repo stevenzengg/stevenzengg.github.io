@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    background-color: #1e1e1e;
+    font-family: 'Courier New', Courier, monospace;
+    color: #00FF00;
+  }
+  
+  .terminal-mock {
+    background-color: black;
+    width: 80%;
+    height: 80vh;
+    margin: 5vh auto;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .app-header {
+    background: #333;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: default;
+  }
+  
+  .traffic-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: default;
+  }
+  
+  
+  .traffic-light.red { background-color: #ff5f56; }
+  .traffic-light.yellow { background-color: #ffbd2e; }
+  .traffic-light.green { background-color: #27c93f; }
+  
+  .blinker {
+    display: inline-block;
+    width: 10px; /* set small width */
+    background-color: #00FF00;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px; /* slight margin from input text */
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  .modal {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background-color: black;
+    z-index: 1000;
+    overflow: auto;
+  }
+  .prompt-line, .output-line {
+    margin: 0;
+  }
+  .input-area {
+    display: inline;
+  }
+
+  .input-filler {
+    display: inline-block;
+    width: 10px; /* same width as blinker */
+  }
+  
+  #terminal {
+    padding-left: .5rem;
+    font-size: 1rem;
+  }
