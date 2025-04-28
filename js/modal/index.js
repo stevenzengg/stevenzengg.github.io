@@ -31,7 +31,7 @@ export function openModal(url) {
 
   makeDraggableResizable(modal);
   bringToFront(modal);
-  modal.addEventListener('mousedown', () => bringToFront(terminalWindow));
+  modal.addEventListener('mousedown', () => bringToFront(modal));
 
 }
 

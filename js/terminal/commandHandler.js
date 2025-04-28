@@ -41,6 +41,13 @@ exit        Close the terminal`;
     case "cd":
       if (args.length === 0) return "Specify a directory to move into.";
       return changeDirectory(args[0]);
+    
+    case "whoami":
+      return `me`;
+    
+    case "clear":
+      return;
+      // to be implemented
 
     default:
       return `Command not found: ${input}`;

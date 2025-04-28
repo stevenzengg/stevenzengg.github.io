@@ -60,6 +60,13 @@ body {
     z-index: 1000;
     overflow: auto;
   }
+  
+  .modal-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
   .prompt-line, .output-line {
     margin: 0;
   }
