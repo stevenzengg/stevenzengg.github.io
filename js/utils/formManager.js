@@ -5,7 +5,7 @@ export function startForm(questions) {
   isFormMode = true;
   currentForm = {
     questions,
-    currentIndex: 1,
+    currentIndex: 0,
     answers: [],
   };
   return questions[0];
