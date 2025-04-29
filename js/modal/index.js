@@ -1,87 +1,154 @@
-import { makeDraggableResizable } from './dragResize.js';
-import { createAppHeader } from '../utils/appHeader.js';
-import { initTerminal } from '../terminal/index.js';
-import { bringToFront } from '../windowManager.js';
+import { makeDraggableResizable } from "./dragResize.js";
+import { createAppHeader } from "../utils/appHeader.js";
+import { initTerminal } from "../terminal/index.js";
+import { bringToFront } from "../windowManager.js";
 
-export function openModal(url) {
-  const modal = document.createElement('div');
-  modal.className = 'modal';
-
+function createModal(contentElement, { width, height }) {
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
-  const modalHeight = Math.min(screenHeight * 0.8, 800);
-  const aspectRatio = 7.5 / 11;
-  const modalWidth = Math.min(screenWidth * 0.8, 600, modalHeight * aspectRatio);
 
+  // fallback safety defaults
+  let modalWidth = Math.min(screenWidth * 0.8, width);
+  let modalHeight = Math.min(screenHeight * 0.8, height);
+
+  const modal = document.createElement("div");
+  modal.className = "modal";
   modal.style.width = `${modalWidth}px`;
   modal.style.height = `${modalHeight}px`;
-  
+
   const maxLeft = screenWidth - modalWidth;
   const maxTop = screenHeight - modalHeight;
-  const randomLeft = Math.floor(Math.random() * maxLeft);
-  const randomTop = Math.floor(Math.random() * maxTop);
-  modal.style.left = `${randomLeft}px`;
-  modal.style.top = `${randomTop}px`;
 
-  // Create modal body
-  const body = document.createElement('div');
-  body.className = 'modal-body';
+  // random jitter position
+  modal.style.left = `${Math.floor(Math.random() * maxLeft)}px`;
+  modal.style.top = `${Math.floor(Math.random() * maxTop)}px`;
 
-  // Create iframe
-  const iframe = document.createElement('iframe');
-  iframe.src = url + "#view=Fit";
-  // No need to set width/height/border manually anymore
-  
-  const header = createAppHeader(() => {
-    document.body.removeChild(modal);
-  });
+  const header = createAppHeader(
+    () => {
+      document.body.removeChild(modal);
+    },
+    () => {
+      toggleFullScreen(modal);
+    }
+  );
 
-  body.appendChild(iframe);
+  const body = document.createElement("div");
+  body.className = "modal-body";
+  body.appendChild(contentElement);
+
   modal.appendChild(header);
   modal.appendChild(body);
-
   document.body.appendChild(modal);
 
   makeDraggableResizable(modal);
-  header.addEventListener('mousedown', () => bringToFront(modal));
+  requestAnimationFrame(() => bringToFront(modal));
+  header.addEventListener("mousedown", () => bringToFront(modal));
+  modal.addEventListener("mousedown", () => bringToFront(modal));
+
+  return modal;
+}
+
+export function openResume(url) {
+  const iframe = document.createElement("iframe");
+  iframe.src = url + "#view=Fit";
+  iframe.style.width = "100%";
+  iframe.style.height = "100%";
+  iframe.style.border = "none";
+
+  createModal(iframe, {
+    width: 850,
+    height: 1100,
+  });
+}
+
+export function openImage(url) {
+  const img = new Image();
+  img.src = url;
+
+  img.onload = () => {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    let naturalWidth = img.naturalWidth;
+    let naturalHeight = img.naturalHeight;
+
+    let scaleFactor = Math.min(
+      (screenWidth * 0.9) / naturalWidth,
+      (screenHeight * 0.9) / naturalHeight,
+      1 // don't upscale if image is smaller than screen
+    );
+
+    let width = naturalWidth * scaleFactor;
+    let height = naturalHeight * scaleFactor;
+
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.display = "block";
+    img.style.objectFit = "contain";
+
+    createModal(img, {
+      width,
+      height,
+    });
+  };
+
+  img.onerror = () => {
+    alert("Failed to load image.");
+  };
+}
+
+export function openTerminal() {
+  const existingTerminal = document.querySelector(".terminal-window");
+  if (existingTerminal) {
+    bringToFront(existingTerminal);
+    return;
+  }
+
+  const terminalDiv = document.createElement("div");
+  terminalDiv.id = "terminal"; // required by initTerminal
+  terminalDiv.className = "terminal-window"; // ✅ preserve className for styling
+  terminalDiv.style.height = "100%"; // allow vertical scroll to work
+  terminalDiv.style.overflowY = "auto";
+
+  const modal = createModal(terminalDiv, {
+    width: 800,
+    height: 600,
+  });
+
+  modal.classList.add("terminal-window"); // optional: if you want styling here too
+
+  initTerminal(terminalDiv);
 }
 
 
-export function openTerminal() {
-  const existingTerminal = document.querySelector('.terminal-window');
-  if (existingTerminal) {
-    bringToFront(existingTerminal)
-    return;
-  }
-  const terminal = document.createElement('div');
-  terminal.className = 'modal terminal-window';
-
+function toggleFullScreen(modal) {
+  const modalWidth = parseInt(modal.style.width, 10);
+  const modalHeight = parseInt(modal.style.height, 10);
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
-  const terminalWidth = Math.min(screenWidth * 0.8, 800);
-  const terminalHeight = Math.min(screenHeight * 0.8, 600);
-  terminal.style.width = `${terminalWidth}px`;
-  terminal.style.height = `${terminalHeight}px`;
 
-  const header = createAppHeader(() => {
-    document.body.removeChild(terminal);
-  });
+  const isFullScreen =
+    Math.abs(modalWidth - screenWidth) < 10 &&
+    Math.abs(modalHeight - screenHeight) < 10;
 
-  const body = document.createElement('div');
-  body.className = 'modal-body';
+  if (isFullScreen) {
+    // restore previous size
+    modal.style.width = modal.dataset.originalWidth;
+    modal.style.height = modal.dataset.originalHeight;
+    modal.style.left = modal.dataset.originalLeft;
+    modal.style.top = modal.dataset.originalTop;
+    modal.classList.remove("fullscreen");
+  } else {
+    // save current size
+    modal.dataset.originalWidth = modal.style.width;
+    modal.dataset.originalHeight = modal.style.height;
+    modal.dataset.originalLeft = modal.style.left;
+    modal.dataset.originalTop = modal.style.top;
 
-  const terminalDiv = document.createElement('div');
-  terminalDiv.id = 'terminal'; // important! initTerminal will hook into this
-  body.appendChild(terminalDiv);
-
-  terminal.appendChild(header);
-  terminal.appendChild(body);
-
-  document.body.appendChild(terminal);
-
-  makeDraggableResizable(terminal);
-  bringToFront(terminal);
-  terminal.addEventListener('mousedown', () => bringToFront(terminal));
-
-  initTerminal(terminalDiv); // Pass the specific div to initialize typing inside
+    modal.style.width = `${window.innerWidth}px`;
+    modal.style.height = `${window.innerHeight}px`;
+    modal.style.left = `0px`;
+    modal.style.top = `0px`;
+    modal.classList.add("fullscreen");
+  }
 }

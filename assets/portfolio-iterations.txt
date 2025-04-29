@@ -1,0 +1,26 @@
+What features on this portfolio should I work on next?
+
+1. Add different themes (light mode vs. dark mode, retro tabs vs. macos tabs)
+
+2. Autocomplete commands with tab
+
+3. grepl
+
+4. stevenGPT.app terminal chatbot
+
+5. more hidden files! (ideas, anyone?)
+
+6. game! (likely protect a file with a password, leave breadcrumbs for user to derive it)
+
+7. allow users to move files around!
+
+8. add file names to headers!
+
+9. create minimize functionality! (but how to keep track of minimized tabs UI-wise?)
+
+10. create voting system for what iteration i should work on next! (should i go into product?)
+
+11. exit command
+
+If you have any other ideas - or iterations on these ideas, please feel free to reach out!
+Check out contact.txt or feedback.app :)
