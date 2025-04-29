@@ -16,7 +16,7 @@ open [file] Open a non-text file (like PDFs)
 
 run [executable] Run an executable file
 
-cd [dir]    Change directory
+cd [dir]    Change directory, or .. to change to parent
 
 clear       Clear the terminal screen
 
