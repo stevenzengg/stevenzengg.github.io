@@ -1,0 +1,24 @@
+Hi! I'm Steven Zeng.
+
+
+
+I like building helpful things. Right now, I'm a software engineer who is 
+jobless. But once upon a time, I built programs for companies 
+such as Google, Amazon, AT&T, and CarMax. I graduated Penn State University
+with majors in Computer Science and Applied Statistics and minors in 
+Mathematics and Engineering Leadership Development. You can find more about my
+work under the experiences/ folder.
+
+
+
+Beyond software, I (surprisingly) have a few hobbies. I love to travel (not sure how to manifest this one yet - perhaps in this portfolio, or perhaps in a vsco),
+gymming (so much that I certified as a personal trainer) and cooking (unless your company provides free food, please contact me).
+
+
+
+Thank you for taking the time to take a look at my portfolio. I hope you have as 
+much fun exploring it as I have building it. If you have any questions,
+please feel free to get in touch! I love meeting new people and catching up with
+old friends. I also appreciate feedback if you have any (please find the form located in the terminal).
+Otherwise, please reach out to me via email, linkedin, or even instagram. Finally, you can also find
+this portfolio on my github!

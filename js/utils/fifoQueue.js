@@ -1,5 +1,5 @@
 class FIFOManager {
-    constructor(limit = 20) {
+    constructor(limit = 2000) {
       this.limit = limit;
     }
   

@@ -1,4 +1,3 @@
-import { initTerminal } from './terminal/index.js';
 import { openTerminal } from './modal/index.js';
 
 window.addEventListener('DOMContentLoaded', () => {

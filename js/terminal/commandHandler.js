@@ -5,30 +5,23 @@ import {
   root,
   File,
   Folder,
+  App,
 } from "./fileSystem.js";
 
-export function handleCommand(input) {
+export async function handleCommand(input) {
   const parts = input.trim().split(/\s+/);
   const command = parts[0];
   const args = parts.slice(1);
 
   switch (command) {
     case "help":
-      return `Available commands:\n
-help        Show this list of commands
-ls          List files
-ls -la      List all files (including hidden)
-cat [file]  View the contents of a text file
-open [file] Open a non-text file (like PDFs)
-cd [dir]    Change directory
-clear       Clear the terminal screen
-exit        Close the terminal`;
+      return _fetchFileContent("assets/help.txt");
 
     case "ls":
+      if (args.length === 1 && args[0] === "-la") {
+        return listFiles(true);
+      }
       return listFiles(false);
-
-    case "ls -la":
-      return listFiles(true);
 
     case "cat":
       if (args.length === 0) return "Specify a file to read.";
@@ -41,54 +34,70 @@ exit        Close the terminal`;
     case "cd":
       if (args.length === 0) return "Specify a directory to move into.";
       return changeDirectory(args[0]);
-    
-    case "whoami":
-      return `me`;
-    
+
     case "clear":
       return;
-      // to be implemented
+    // to be implemented
 
+    case "run":
+      if (args.length === 0) return "Specify a file to run.";
+      return runApp(args[0]);
+      
     default:
-      return `Command not found: ${input}`;
+      return `Command not found: ${input}. Try 'help' for a list of commands.`;
   }
 }
 
 function listFiles(showHidden) {
   const currentDirectory = getCurrentDirectory();
-  const childrenNodes = currentDirectory.listChildrenNodes();
-
+  let childrenNodes = currentDirectory.listChildrenNodes();
+  if (!showHidden) {
+    childrenNodes = childrenNodes.filter((node) => !node.hidden);
+  }
   if (!childrenNodes.length) return "(empty directory)";
 
-  if (showHidden) {
-    // mimic detailed ls -la output
-    return childrenNodes
-      .map((node) => {
-        const type = node instanceof Folder ? "d" : "-";
-        return `${type}rw-r--r-- 1 user group 0 Jan 1 00:00 ${node.name}`;
-      })
-      .join("\n");
-  } else {
-    return childrenNodes.map(node => node.name).join("\n");
+  return childrenNodes.map((node) => node.name).join("\n\n");
+}
+
+async function _fetchFileContent(filePath, fileName = "") {
+  try {
+    const response = await fetch(filePath);
+    if (!response.ok) throw new Error("Network response was not ok");
+    const text = await response.text();
+    return text;
+  } catch (error) {
+    console.error("Error fetching file:", error);
+    return `Error fetching file: ${fileName}`;
   }
 }
 
-function catFile(filename) {
+async function catFile(filename) {
   const node = getCurrentDirectory().getChild(filename);
   if (!node) return `File not found: ${filename}`;
-  if (node instanceof Folder) return `Cannot cat a directory: ${filename}`;
-  return node.content;
+  if (node instanceof File && node.content.endsWith(".txt")) {
+    return await _fetchFileContent(node.content, filename);
+  }
+  return `Cannot cat ${filename} (unsupported format).`;
 }
 
 function openFile(filename) {
+  // perhaps add functionality to open other file types
   const node = getCurrentDirectory().getChild(filename);
   if (!node) return `File not found: ${filename}`;
-  if (node instanceof Folder) return `Cannot open a directory: ${filename}`;
-  if (typeof node.content === "string" && node.content.endsWith(".pdf")) {
+  if (node instanceof File && node.content.endsWith(".pdf")) {
     openModal(node.content);
     return `Opening ${filename}...`;
   }
   return `Cannot open ${filename} (unsupported format).`;
+}
+
+function runApp(appName) {
+  const node = getCurrentDirectory().getChild(appName);
+  if (!node) return `App not found: ${appName}`;
+  if (node instanceof App) {
+    return node.run();
+  }
+  return `Cannot run ${appName} (not an app).`;
 }
 
 function changeDirectory(foldername) {
@@ -103,9 +112,10 @@ function changeDirectory(foldername) {
     }
   }
   const node = currentDirectory.getChild(foldername);
-  if (!node || !(node instanceof Folder)) {
-    return `Folder not found: ${foldername}`;
+  if (!node) return `Folder not found: ${foldername}`;
+  if (node instanceof Folder) {
+    setCurrentDirectory(node);
+    return "";
   }
-  setCurrentDirectory(node);
-  return "";
+  return `Folder not found: ${foldername}`;
 }

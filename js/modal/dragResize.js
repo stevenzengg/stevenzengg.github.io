@@ -3,7 +3,7 @@ export function makeDraggableResizable(target) {
 
   interact(target)
     .draggable({
-      allowFrom: '.app-header',
+      allowFrom: '.modal-header',
       listeners: {
         start(event) {
           if (iframe) iframe.style.pointerEvents = 'none'; // Block iframe clicks
@@ -27,7 +27,7 @@ export function makeDraggableResizable(target) {
     })
     .resizable({
       edges: { top: true, left: true, bottom: true, right: true },
-      margin: 3,
+      margin: 5,
       listeners: {
         move(event) {
           let { x, y } = event.target.dataset;

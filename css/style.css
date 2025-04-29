@@ -1,85 +1,151 @@
 body {
-    margin: 0;
-    background-color: #1e1e1e;
-    font-family: 'Courier New', Courier, monospace;
-    color: #00FF00;
+  margin: 0;
+  background-color: #1e1e1e;
+  font-family: "Courier New", Courier, monospace;
+  color: #00ff00;
+}
+
+.modal {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  background-color: black;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.modal-header {
+  height: 2rem; /* fixed height */
+  background-color: #333;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0; /* do not allow shrink */
+  cursor: default;
+}
+
+.modal-body {
+  flex: 1 1 auto; /* expand to fit space */
+  overflow: auto; /* scroll if necessary */
+  background-color: black;
+  padding: 1rem;
+  position: relative;
+  padding: 0;
+}
+
+.modal-terminal {
+  background-color: black;
+  border-radius: 8px;
+}
+
+/* resume iframe */
+.modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+
+}
+
+.traffic-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: default;
+}
+
+.traffic-light.red {
+  background-color: #ff5f56;
+}
+.traffic-light.yellow {
+  background-color: #ffbd2e;
+}
+.traffic-light.green {
+  background-color: #27c93f;
+}
+
+.blinker {
+  display: inline-block;
+  width: 10px; /* set small width */
+  background-color: #00ff00;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px; /* slight margin from input text */
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
   }
-  
-  .terminal-mock {
-    background-color: black;
-    width: 80%;
-    height: 80vh;
-    margin: 5vh auto;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
+  50% {
+    opacity: 0;
   }
-  
-  .app-header {
-    background: #333;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: default;
-  }
-  
-  .traffic-light {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    cursor: default;
-  }
-  
-  
-  .traffic-light.red { background-color: #ff5f56; }
-  .traffic-light.yellow { background-color: #ffbd2e; }
-  .traffic-light.green { background-color: #27c93f; }
-  
-  .blinker {
-    display: inline-block;
-    width: 10px; /* set small width */
-    background-color: #00FF00;
-    animation: blink 1s step-end infinite;
-    margin-left: 2px; /* slight margin from input text */
-  }
-  
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-  }
-  
-  .modal {
-    position: fixed;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
-    background-color: black;
-    z-index: 1000;
-    overflow: auto;
-  }
-  
-  .modal-body iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+}
+
+.prompt-line {
+}
+.output-line {
+  margin: 0;
+  color: white;
+}
+.input-area {
+  display: inline;
+}
+
+.input-filler {
+  display: inline-block;
+  width: 10px; /* same width as blinker */
+}
+
+#terminal {
+  height: 100%;
+  overflow-y: auto;
+  display: block; /* not flex */
+  padding-left: 0.5rem;
+  font-size: 1rem;
+}
+
+.wrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.button {
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
   }
 
-  .prompt-line, .output-line {
-    margin: 0;
-  }
-  .input-area {
-    display: inline;
-  }
-
-  .input-filler {
-    display: inline-block;
-    width: 10px; /* same width as blinker */
-  }
-  
-  #terminal {
-    padding-left: .5rem;
-    font-size: 1rem;
-  }
+.button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}

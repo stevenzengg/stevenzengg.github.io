@@ -1,0 +1,21 @@
+Available commands:
+
+
+
+help        Show this list of commands
+
+ls          List files
+
+ls -la      List all files (including hidden)
+
+cat [file]  View the contents of a text file
+
+open [file] Open a non-text file (like PDFs)
+
+run [executable] Run an executable file
+
+cd [dir]    Change directory
+
+clear       Clear the terminal screen
+
+exit        Close the terminal

@@ -1,6 +1,6 @@
 export function createAppHeader(onClose) {
     const header = document.createElement('div');
-    header.className = 'app-header';
+    header.className = 'modal-header';
   
     const red = document.createElement('span');
     red.className = 'traffic-light red';
