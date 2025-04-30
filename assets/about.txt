@@ -18,7 +18,6 @@ gymming (so much that I certified as a personal trainer) and cooking (unless you
 Thank you for taking the time to take a look at my portfolio. I hope you have as 
 much fun exploring it as I have building it. If you have any questions,
 please feel free to get in touch! I love meeting new people and catching up with
-old friends. I also appreciate feedback if you have any (please find form.app)
-(jk it doesn't persist data! feel free to play around with it but use my contact info instead).
+old friends. I also appreciate feedback if you have any (please find form.app).
 Otherwise, please reach out to me via email, linkedin, or even instagram. Finally, you can also find
 this portfolio on my github!

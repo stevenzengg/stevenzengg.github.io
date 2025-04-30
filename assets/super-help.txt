@@ -17,13 +17,13 @@ run uptime.app --------------- fun program displaying my time on earth
 
 cat portfolio-iterations.txt - next steps 
 
+run feedback.app ------------- send me feedback!
+
 
 
 
 
 unfinished content:
-
-run feedback.app ------------- send me feedback!
 
 cat projects/notivate.txt
 

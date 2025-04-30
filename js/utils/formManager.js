@@ -38,6 +38,22 @@ export async function handleFormInput(input) {
   }
 }
 
+/*
+design tradeoff here - do i know that you can ddox me via this app script?
+yes i do. do i care? yes i do. do i care enough to change it? no i do not.
+just kidding, but my app script is limited to 100 emails per day, so it limits
+the total spammage. serverless is a pain, and i do not want to implement a rate
+limiter here. how i might do it most simply though, is a simple database/table
+with IP address and timestamp of last submission, and just token bucket it.
+other solutions:
+1. emailJS - better control over the email design, but if i want to protect
+API keys, i need to pay. otherwise, i'd need to expose it in the client side
+since i have no server.
+2. abstract everything away to a server - the best solution, but really not needed
+what am i scaling? ...unless i get a lot of traffic hehe. 
+3. what i didn't research but may be even better - an API into google forms
+*/
+
 async function sendFormAnswersToEmail(answers) {
   const data = {
     name: answers[0],
