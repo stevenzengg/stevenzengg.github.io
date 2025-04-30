@@ -5,6 +5,12 @@ press enter :)
 
 
 
+
+i.e. type in "cat about.txt" and press enter!
+
+
+
+
 finished content:
 
 cat about.txt ---------------- about me!
