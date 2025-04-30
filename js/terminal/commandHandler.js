@@ -77,7 +77,7 @@ async function _fetchFileContent(filePath, fileName = "") {
 }
 
 async function catFile(filename) {
-  const node = getCurrentDirectory().getChild(filename);
+  const node = getNodeByPath(filename);
   if (!node) return `File not found: ${filename}`;
   if (node instanceof File) {
     if (node.content.endsWith(".txt")) {
@@ -91,7 +91,7 @@ async function catFile(filename) {
 
 function openFile(filename) {
   // perhaps add functionality to open other file types
-  const node = getCurrentDirectory().getChild(filename);
+  const node = getNodeByPath(filenamae);
   if (!node) return `File not found: ${filename}`;
   if (node instanceof File) {
     if (node.name.endsWith(".pdf")) {
@@ -107,7 +107,7 @@ function openFile(filename) {
 }
 
 function runApp(appName, input) {
-  const node = getCurrentDirectory().getChild(appName);
+  const node = getNodeByPath(appName);
   if (!node) return `App not found: ${appName}`;
   if (node instanceof App && node.name.endsWith(".app")) {
     const res = node.run();
@@ -138,7 +138,7 @@ function changeDirectory(foldername) {
       return "Already at root directory.";
     }
   }
-  const node = currentDirectory.getChild(foldername);
+  const node = getNodeByPath(foldername);
   if (!node) return `Folder not found: ${foldername}`;
   if (node instanceof Folder) {
     setCurrentDirectory(node);
@@ -165,4 +165,21 @@ function buildTree(folder, prefix = "") {
   });
 
   return output;
+}
+
+
+function getNodeByPath(path) {
+  const segments = path.split("/").filter(Boolean);
+  let current = getCurrentDirectory();
+
+  for (let i = 0; i < segments.length; i++) {
+    if (!(current instanceof Folder)) return null;
+
+    const next = current.getChild(segments[i]);
+    if (!next) return null;
+
+    current = next;
+  }
+
+  return current; // could be File, Folder, App, etc.
 }

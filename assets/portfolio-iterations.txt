@@ -22,5 +22,7 @@ What features on this portfolio should I work on next?
 
 11. exit command
 
+12. navigating and altering input command from anywhere
+
 If you have any other ideas - or iterations on these ideas, please feel free to reach out!
 Check out contact.txt or feedback.app :)

@@ -26,7 +26,7 @@ clear       Clear the terminal screen
 
 hint: if you're confused, run 'tree'!
 
-and note: projects and experiences are not finished
+and note: projects and experiences are unfinished
 
 second note: the feedback form will not persist your feedback.
 i thought i would use emailJS but i realized i may not want to
