@@ -1,0 +1,36 @@
+january 2024 - february 2025
+
+
+
+
+cloud pub/sub (cps) is a well-established messaging product across the gcloud suite. mainly,
+its customers are engineers who need to decouple their services (i.e. independent
+scaling, async background tasks), level their load (i.e. buffering requests), or 
+increase reliability and fault tolerance (i.e. message persistence). sound like a
+message queue? bingo, that's because it is - just on steroids and 5hr energy. 
+
+
+
+
+here, i had the opportunity to design, debug, and deliver infra at scale. let's dive
+into some of my projects during my time there (disclaimer - perhaps i should change 
+this experience away from a .txt file)!
+
+
+
+
+1. CPS -> CAIS
+
+have you ever wondered why your cps resources (subscriptions, topics, snapshots, schemas)
+show up in cloud asset inventory system (cais)? me neither but this functionality is due
+to me! while the initial system was built by an older engineer in the late 2010s, i designed
+and implemented for schema while updating the legacy system for the other resources to match.
+this sync was achieved via both a real-time/streaming feed and a periodic batch job. results?
+seamless integration, strong deduplication guarantees, and resilient sync with clear latency SLAs 
+and fallback strategies. want to know something funny (i hope this is not nda)? i used cps as the
+real-time feed connecting cps with cais. cps-ception.
+
+
+
+
+2. and 3. and 4. and 5. coming soon!

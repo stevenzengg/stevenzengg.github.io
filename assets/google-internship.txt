@@ -1,0 +1,39 @@
+august - november 2022
+
+
+
+
+gStore was transitioning from  legacy systems to Google's modern server
+platform, Boq. i was responsible for facilitating this effort for their
+customer e-mail stack. e-mail infra for gStore is surprisingly (or perhaps
+extremely unsurprisingly) complex. it touches nearly every order lifecycle -
+delivery confirmations, trade-ins, returns, address changes, and more. 3 aging
+systems each individually owned e-mail code - from db to data representation to 
+templating. in the boq domain model that i implemented, i converted said
+functionality modularly under a single, unified, framework.
+
+
+
+
+while the boq migration itself brought along hidden benefits in the form of
+auth and quota management, enhanced observability/monitoring, enterprise-grade testing support,
+extensive rollout/rollback functionality, yada yada yada (i should really drive a point here 
+with some impactful metrics huh. i.e. integrate ops infra to reduce outage durations by ~ 10m), the design that i brought to gStore combined
+all e-mail functionality into the same modules - allowing different teams to plug
+and play their own requirements. TBwritten: design principles used! exact benefits across what functionalities!
+
+
+
+
+by the end of the internship, i had migrated the 3 most integral e-mails -  delivery confirmation, 
+change shipping address, and
+delivery system cancellation - to my framework. for each, i owned the migration e2e - building RPCs,
+setting up test param injections, creating action/unit/tin tests, and managing backward-compatible
+transitions through multiple environments. to support broader visibility, i also created a migration
+tracker for 90+ gStore e-mails.
+
+
+
+
+i will need to add some learnings here and fill in some blanks above. stay tuned!
+

@@ -2,10 +2,10 @@ import { File } from "./fileSystem.js";
 
 export function populateExperiences(experiences) {
   experiences.addChild(
-    new File("google1.txt", "swe intern at gstore - coming soon")
+    new File("google-internship.txt", "assets/google-internship.txt")
   );
   experiences.addChild(
-    new File("google2.txt", "Software Engineer at GCP - coming soon")
+    new File("google.txt", "assets/google.txt")
   );
   experiences.addChild(
     new File("amazon.txt", "swe intern at alexa video - coming soon")
