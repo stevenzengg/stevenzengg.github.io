@@ -91,7 +91,7 @@ async function catFile(filename) {
 
 function openFile(filename) {
   // perhaps add functionality to open other file types
-  const node = getNodeByPath(filenamae);
+  const node = getNodeByPath(filename);
   if (!node) return `File not found: ${filename}`;
   if (node instanceof File) {
     if (node.name.endsWith(".pdf")) {

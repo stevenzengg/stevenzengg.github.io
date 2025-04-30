@@ -122,31 +122,44 @@ export function openTerminal() {
 
 
 function toggleFullScreen(modal) {
-  const modalWidth = parseInt(modal.style.width, 10);
-  const modalHeight = parseInt(modal.style.height, 10);
+  const transformX = parseFloat(modal.getAttribute("data-x")) || 0;
+  const transformY = parseFloat(modal.getAttribute("data-y")) || 0;
+
+  // Commit transform to left/top if needed
+  if (transformX || transformY) {
+    const left = parseFloat(modal.style.left) || 0;
+    const top = parseFloat(modal.style.top) || 0;
+    modal.style.left = `${left + transformX}px`;
+    modal.style.top = `${top + transformY}px`;
+    modal.style.transform = "none";
+    modal.setAttribute("data-x", 0);
+    modal.setAttribute("data-y", 0);
+  }
+
+  const rect = modal.getBoundingClientRect();
   const screenWidth = window.innerWidth;
   const screenHeight = window.innerHeight;
 
   const isFullScreen =
-    Math.abs(modalWidth - screenWidth) < 10 &&
-    Math.abs(modalHeight - screenHeight) < 10;
+    Math.abs(rect.width - screenWidth) < 10 &&
+    Math.abs(rect.height - screenHeight) < 10 &&
+    parseInt(modal.style.left, 10) === 0 &&
+    parseInt(modal.style.top, 10) === 0;
 
   if (isFullScreen) {
-    // restore previous size
     modal.style.width = modal.dataset.originalWidth;
     modal.style.height = modal.dataset.originalHeight;
     modal.style.left = modal.dataset.originalLeft;
     modal.style.top = modal.dataset.originalTop;
     modal.classList.remove("fullscreen");
   } else {
-    // save current size
     modal.dataset.originalWidth = modal.style.width;
     modal.dataset.originalHeight = modal.style.height;
     modal.dataset.originalLeft = modal.style.left;
     modal.dataset.originalTop = modal.style.top;
 
-    modal.style.width = `${window.innerWidth}px`;
-    modal.style.height = `${window.innerHeight}px`;
+    modal.style.width = `${screenWidth}px`;
+    modal.style.height = `${screenHeight}px`;
     modal.style.left = `0px`;
     modal.style.top = `0px`;
     modal.classList.add("fullscreen");
