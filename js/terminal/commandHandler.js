@@ -24,10 +24,13 @@ export async function handleCommand(input) {
       return _fetchFileContent("assets/super-help.txt");
 
     case "ls":
-      if (args.length === 1 && args[0] === "-a") {
-        return listFiles(true);
+      if (args.length > 0) {
+        if (args[0] === "-a") {
+          return listFiles(args.length > 1 ? args[1] : "", true);
+        }
+        return listFiles(args[0]);
       }
-      return listFiles(false);
+      return listFiles();
 
     case "cat":
       if (args.length === 0) return "Specify a file to read.";
@@ -50,15 +53,21 @@ export async function handleCommand(input) {
       return "~\n\n" + buildTree(getCurrentDirectory());
 
     case "exit":
-      // to be implemented!
+    // to be implemented!
 
     default:
       return `Command not found: ${input}. Try 'help' for a list of commands.`;
   }
 }
 
-function listFiles(showHidden) {
-  const currentDirectory = getCurrentDirectory();
+function listFiles(filePath = "", showHidden = false) {
+  let currentDirectory = null;
+  if (filePath) {
+    currentDirectory = getNodeByPath(filePath);
+  } else {
+    currentDirectory = getCurrentDirectory();
+  }
+  if (!currentDirectory) return `Directory not found: ${filePath}`;
   let childrenNodes = currentDirectory.listChildrenNodes();
   if (!showHidden) {
     childrenNodes = childrenNodes.filter((node) => !node.hidden);
@@ -169,7 +178,6 @@ function buildTree(folder, prefix = "") {
 
   return output;
 }
-
 
 function getNodeByPath(path) {
   const segments = path.split("/").filter(Boolean);

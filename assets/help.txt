@@ -2,7 +2,7 @@ Available commands:
 
 
 
-HELP ------ Ultimate cheat sheet for this website
+HELP ------ Website cheat sheet (RECRUITERS USE THIS! ...or not suit yourself)
 
 help ------ Show this list of commands
 
