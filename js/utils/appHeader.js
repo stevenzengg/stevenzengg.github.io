@@ -8,7 +8,9 @@ export function createAppHeader(onClose, onMaximize) {
     e.stopPropagation(); // prevent any accidental bubbling
     if (onClose) onClose();
   });
-
+  header.addEventListener("mousedown", (e) => {
+    e.preventDefault(); // prevent text selection while dragging
+  });
   const yellow = document.createElement("span");
   yellow.className = "traffic-light yellow";
 

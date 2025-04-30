@@ -27,7 +27,7 @@ export function makeDraggableResizable(target) {
     })
     .resizable({
       edges: { top: true, left: true, bottom: true, right: true },
-      margin: 5,
+      margin: 8,
       listeners: {
         move(event) {
           let { x, y } = event.target.dataset;

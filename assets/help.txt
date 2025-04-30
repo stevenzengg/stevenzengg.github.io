@@ -2,38 +2,39 @@ Available commands:
 
 
 
-HELP        Ultimate cheat sheet for this website
+HELP ------ Ultimate cheat sheet for this website
 
-help        Show this list of commands
+help ------ Show this list of commands
 
-tree        Display a file tree structure from the active directory
+tree ------ Display a file tree structure from the active directory
 
-ls          List files
+ls -------- List files
 
-ls -a       List all files
+ls -a ----- List all files
 
-cat [file]  View the contents of a text file
+cat [file] ------ View the contents of a text file
 
-open [file] Open a non-text file (like PDFs)
+open [file] ----- Open a non-text file (like PDFs)
 
-run [executable] Run an executable file
+run [app] ------- Run an executable file
 
-cd [dir]    Change directory, or .. to change to parent
+cd [dir] -------- Change directory, or .. to change to parent
 
-clear       Clear the terminal screen
+clear ----------- Clear the terminal screen
 
-🔼 🔽 Arrow Keys  Navigate through command history
+🔼 🔽 Arrow Keys - Navigate through command history
 
 
 
-hint: if you're confused, run 'tree'!
+note: projects and experiences are unfinished
 
-and note: projects and experiences are unfinished
+
 
 second note: the feedback form will not persist your feedback.
 i thought i would use emailJS but i realized i may not want to
 expose my public key so will need to research more. perhaps refer
 to my contact info for now!
+
 
 
 last note: try closing and resizing and dragging and minimizing and maximizing tabs! maybe just for fun!
