@@ -1,7 +1,7 @@
 let isFormMode = false;
 let currentForm = null;
 let scriptURL =
-  "https://script.google.com/macros/s/AKfycbzUXfu3VrN3bGhdgq6RenwEembs-SLihWTtibTsT1zxdMR4Iaf9G1JwE1bayo7UrXGR/exec";
+  "https://script.google.com/macros/s/AKfycbxH6WuV4jmU1Q7Z-TS6VO4PvhbwFm19DK3-vKEPqalVQ3WnOLQ496syMl41mYBpw-_z/exec";
 export function startForm(questions) {
   isFormMode = true;
   currentForm = {
@@ -45,13 +45,14 @@ async function sendFormAnswersToEmail(answers) {
     feedback: answers[2],
   };
 
-  try {
-    await fetch(scriptURL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-  } catch (err) {
-    console.error("Failed to send email:", err);
-  }
+  fetch(scriptURL, {
+    method: "POST",
+    mode: "no-cors", // ← disables preflight & avoids CORS
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  }).catch((err) => {
+    console.error("Failed to send", err);
+  });
 }
