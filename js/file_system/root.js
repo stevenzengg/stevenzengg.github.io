@@ -14,7 +14,7 @@ export function populateRoot(root) {
     "assets/portfolio-iterations.txt"
   );
   const projects = new Folder("projects");
-  const experiences = new Folder("experience");
+  const experiences = new Folder("experiences");
 
   const uptimeNode = new App("uptime.app", () => uptime());
   const feedbackNode = new App("feedback.app", () => ({

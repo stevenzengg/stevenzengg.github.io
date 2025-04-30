@@ -2,9 +2,11 @@ Available commands:
 
 
 
+HELP        Ultimate cheat sheet for this website
+
 help        Show this list of commands
 
-tree        Display a file tree structure
+tree        Display a file tree structure from the active directory
 
 ls          List files
 

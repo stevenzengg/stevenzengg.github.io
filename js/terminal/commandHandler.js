@@ -20,6 +20,9 @@ export async function handleCommand(input) {
     case "help":
       return _fetchFileContent("assets/help.txt");
 
+    case "HELP":
+      return _fetchFileContent("assets/super-help.txt");
+
     case "ls":
       if (args.length === 1 && args[0] === "-a") {
         return listFiles(true);
