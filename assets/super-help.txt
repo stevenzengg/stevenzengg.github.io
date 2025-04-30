@@ -7,13 +7,13 @@ press enter :)
 
 finished content:
 
-cat about.txt - about me!
+cat about.txt ---------------- about me!
 
-open resume.pdf - my resume!
+open resume.pdf -------------- my resume!
 
-cat contact.txt - get my contact info!
+cat contact.txt -------------- get my contact info!
 
-run uptime.app - fun program displaying my time on earth
+run uptime.app --------------- fun program displaying my time on earth
 
 cat portfolio-iterations.txt - next steps 
 
@@ -23,7 +23,7 @@ cat portfolio-iterations.txt - next steps
 
 unfinished content:
 
-run feedback.app - send me feedback!
+run feedback.app ------------- send me feedback!
 
 cat projects/notivate.txt
 
