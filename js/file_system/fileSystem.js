@@ -56,4 +56,8 @@ function setCurrentDirectory(newDirectory) {
   _currentDirectory = newDirectory;
 }
 
-export { root, getCurrentDirectory, setCurrentDirectory, File, Folder, App };
+function resetCurrentDirectory() {
+  _currentDirectory = root;
+}
+
+export { root, getCurrentDirectory, setCurrentDirectory, resetCurrentDirectory, File, Folder, App };

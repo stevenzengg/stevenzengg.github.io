@@ -1,6 +1,10 @@
 import { handleCommand } from "./commandHandler.js";
 import { fifoManager } from "../utils/fifoQueue.js";
-import { getCurrentDirectory } from "../file_system/fileSystem.js";
+import {
+  getCurrentDirectory,
+  setCurrentDirectory,
+  resetCurrentDirectory,
+} from "../file_system/fileSystem.js";
 import { isInFormMode } from "../utils/formManager.js";
 import { historyManager } from "../utils/historyManager.js";
 
@@ -16,6 +20,7 @@ const linkMap = {
 };
 
 export function initTerminal() {
+  resetCurrentDirectory();
   terminalDiv = document.getElementById("terminal");
   newPrompt();
   document.addEventListener("keydown", handleKeydown);
