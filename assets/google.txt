@@ -3,7 +3,7 @@ january 2024 - february 2025
 
 
 
-cloud pub/sub (cps) is a well-established messaging product across the gcloud suite. mainly,
+cloud pub/sub (cps) is a well-established messaging platform in the gcloud suite. mainly,
 its customers are engineers who need to decouple their services (i.e. independent
 scaling, async background tasks), level their load (i.e. buffering requests), or 
 increase reliability and fault tolerance (i.e. message persistence). sound like a
@@ -19,18 +19,56 @@ this experience away from a .txt file)!
 
 
 
-1. CPS -> CAIS
+1. cps -> cais -----
 
-have you ever wondered why your cps resources (subscriptions, topics, snapshots, schemas)
-show up in cloud asset inventory system (cais)? me neither but this functionality is due
-to me! while the initial system was built by an older engineer in the late 2010s, i designed
-and implemented for schema while updating the legacy system for the other resources to match.
+have you ever wondered how your cps resources (subscriptions, topics, snapshots, schemas)
+show up in cloud asset inventory system (cais)? neither did any of my friends but this 
+functionality is due to me (or at least the exporting of cps's resources)! while the 
+initial data pipeline was built by a more senior engineer in the late 2010s, i designed
+and implemented for schema while updating the legacy pipeline for the other resources to match.
 this sync was achieved via both a real-time/streaming feed and a periodic batch job. results?
 seamless integration, strong deduplication guarantees, and resilient sync with clear latency SLAs 
-and fallback strategies. want to know something funny (i hope this is not nda)? i used cps as the
+and fallback strategies. want to know something funny? i used cps for the
 real-time feed connecting cps with cais. cps-ception.
 
 
 
 
-2. and 3. and 4. and 5. coming soon!
+2. metrics work -----
+
+a ton of my work surrounded customer-exposed metrics. on the surface, i created service probers that 
+queried ~50 metrics APIs every 5 minutes across 3 test projects, checking for any downage.
+my work eventually paved the way for our sister team, managed kafka, to streamline creating
+their own service probers for their metrics APIs.
+below the surface, i resolved a deep-rooted bug due to cache/db discrepancies and cold machines by tweaking 
+precompute formulas. 
+
+
+
+
+3. horizontals -----
+
+sometimes it just brings me joy to help google stay compliant to laws and regulations. what this meant
+in practice was building security/auth testing for all admin APIs cps exposes (~30, think createTopic,
+createSchema, etc.). in another lapse of joy induced programming, i deployed regional endpoints (~12) 
+across EU to address GDPR, 
+specifically data sovereignty... and guess what? i also created service probers for them!
+prober party! these probers were a bit more complicated. i replicated the entire user flow for multiple
+cps features such as exactly once delivery, schema enforcement, and ofc
+the new feature being tested - geofencing - across the new regional endpoints.
+
+
+
+
+4. admin plane changes for cps -> gcs use topic schema -----
+
+in one of my first projects, i added useTopicSchema as a field to our customer configs.
+i evaluated and coded the logic needed to keep customer config state consistent: check for schemas, validate
+said schema, etc. to expose this feature to the customer, i worked with cps's REST api's and gcloud CLI - 
+coordinating across teams to navigate cli release schedules, environment vetting, and
+cps's customer-facing rollout process.
+
+
+
+
+5. some other small things. coming soon!

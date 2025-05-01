@@ -26,7 +26,7 @@ clear ----------- Clear the terminal screen
 
 
 
-note: projects and experiences are unfinished
+note: projects (and some experiences) are unfinished - try "HELP" to see which ones
 
 
 

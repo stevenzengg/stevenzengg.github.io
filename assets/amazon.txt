@@ -1,0 +1,37 @@
+may 2022 - august 2022
+
+
+
+
+alexa video at amazon owns the experience e2e for the alexa video app,
+which is found on amazon's multi-modal (ones with screens) home devices. it connects 
+users to content by integrating with providers like prime video, netflix, etc. bts,
+it works on UI rendering, API integration, and cross-surface behavior. is it discontinued?
+i don't know (nda) but unfortunately amazon's home devices business may not have made record
+margins as was hoped (my project is still cool tho! promise!)
+
+
+
+
+to render a screen (or as alexa named them, an experience) in the app, alexa presentation language defines the visual designs
+and interactive elements, while downstream services (such as the one I created) plug in
+to process and deliver content. at the widget level, said content was statically
+generated. in the most jarring use-case, this meant that every user on the app would see the
+same list of genres in the same order. to personalize this experience, i fully designed and
+implemented a widget ranking platform with multiple layers (ranking, aggregation) and interfaces
+(entry point, ranking strategy). as one of my first internships, i learned many skills on the fly.
+pertaining high level, i defined API contracts/responsibilities, data models, and microservices. pertaining low level, I designed
+interfaces, abstract classes, used dependency injection, factory patterns, test-driven development, etc.
+
+
+
+
+i also created an example ranker and presented the final functionality to higher leadership.
+
+stay tuned for more edits! tbWritten:
+1. communication with science teams
+2. whole planning stage of project
+
+
+
+

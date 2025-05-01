@@ -6,7 +6,7 @@ I like building helpful things. I've built programs for companies
 such as Google, Amazon, AT&T, and CarMax. I graduated Penn State University
 with majors in Computer Science and Applied Statistics and minors in 
 Mathematics and Engineering Leadership Development. You can find more about my
-work under the experiences/ and projects/ folders (hah jokes on you, they are incomplete).
+work under the experiences/ and projects/ folders (hah jokes on you, not all are complete).
 
 
 

@@ -8,7 +8,7 @@ export function populateExperiences(experiences) {
     new File("google.txt", "assets/google.txt")
   );
   experiences.addChild(
-    new File("amazon.txt", "swe intern at alexa video - coming soon")
+    new File("amazon.txt", "assets/amazon.txt")
   );
   experiences.addChild(
     new File("at&t.txt", "insurance fraud at at&t - coming soon")

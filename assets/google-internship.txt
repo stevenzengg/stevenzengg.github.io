@@ -3,6 +3,13 @@ august - november 2022
 
 
 
+gStore at google builds and maintains the backend infra powering the logistics of
+store.google.com + concrete stores across the world. it owns the lifecycle of an order
+from purchase and payments to shipping, returns, and customer service. 
+
+
+
+
 gStore was transitioning from  legacy systems to Google's modern server
 platform, Boq. i was responsible for facilitating this effort for their
 customer e-mail stack. e-mail infra for gStore is surprisingly (or perhaps
@@ -36,4 +43,6 @@ tracker for 90+ gStore e-mails.
 
 
 i will need to add some learnings here and fill in some blanks above. stay tuned!
+- builder patterns
+- etc.
 

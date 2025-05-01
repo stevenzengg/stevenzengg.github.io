@@ -1,4 +1,4 @@
-This page is for folks who are tight on time and want to view the content on my page quickly.
+This text is for folks who are tight on time and want to view the content on my page quickly.
 The following commands are idempotent (given that you ran no "cd" commands earlier). If you did,
 please close and re-open the terminal (or repeatedly "cd .." until you are at root), copy/paste/type these commands, and 
 press enter :)
@@ -18,6 +18,12 @@ cat about.txt ---------------- about me!
 open resume.pdf -------------- my resume!
 
 cat contact.txt -------------- get my contact info!
+
+cat experiences/google.txt
+
+cat experiences/google-internship.txt
+
+cat experiences/amazon.txt
 
 run uptime.app --------------- fun program displaying my time on earth
 
@@ -40,12 +46,6 @@ cat projects/acrp.txt
 cat projects/venmo-automation.txt
 
 cat projects/dupe-deleter.txt
-
-cat experiences/google1.txt
-
-cat experiences/google2.txt
-
-cat experiences/amazon.txt
 
 cat experiences/carmax.txt
 
