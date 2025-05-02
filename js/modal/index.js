@@ -111,7 +111,7 @@ export function openTerminal() {
   terminalDiv.style.overflowY = "auto";
 
   const modal = createModal(terminalDiv, {
-    width: 800,
+    width: 900,
     height: 600,
   });
 

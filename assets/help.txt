@@ -2,32 +2,36 @@ Available commands:
 
 
 
-HELP ------ Website cheat sheet (RECRUITERS USE THIS! ...or not suit yourself)
+HELP ------------- Website cheat sheet (RECRUITERS USE THIS! ...or not suit yourself)
 
-help ------ Show this list of commands
+help ------------- Show this list of commands
 
-tree ------ Display a file tree structure from the active directory
+tree ------------- Display a file tree structure from the active directory
 
-ls -------- List files
+ls [dir]---------- List files in directory (default in active)
 
-ls -a ----- List all files
+ls -a [dir] ------ List all files in directory (default in active)
 
-cat [file] ------ View the contents of a text file
+cat <.txt file> -- View the contents of a text file
 
-open [file] ----- Open a non-text file (like PDFs)
+open <.pdf file> - Open a non-text file (like PDFs)
 
-run [app] ------- Run an executable file
+run <.app file> -- Run an executable file
 
-cd [dir] -------- Change directory, or .. to change to parent
+cd <dir> --------- Change directory, or .. to change to parent
 
-clear ----------- Clear the terminal screen
+clear ------------ Clear the terminal screen
 
 🔼 🔽 Arrow Keys - Navigate through command history
+
+where [] denote optional params, and <> denote required params.
+
 
 
 
 note: projects (and some experiences) are unfinished - try "HELP" to see which ones
 
-
+second note: these commands work with nested files/directories as params! although there is only multi-layer
+directory in this site for now, and it's the easter egg :)
 
 last note: try closing and resizing and dragging and minimizing and maximizing tabs! maybe just for fun!
