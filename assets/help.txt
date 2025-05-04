@@ -22,7 +22,7 @@ cd <dir> --------- Change directory, or .. to change to parent
 
 clear ------------ Clear the terminal screen
 
-🔼 🔽 Arrow Keys - Navigate through command history
+🔼 🔽 Arrow Keys -- Navigate through command history
 
 where [] denote optional params, and <> denote required params.
 
