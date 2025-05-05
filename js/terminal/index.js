@@ -23,7 +23,7 @@ export function initTerminal() {
   resetCurrentDirectory();
   terminalDiv = document.getElementById("terminal");
   // create intro message
-  const introMessage = `type 'help' for a list of commands. please use desktop for best (jk, any*) experience. not supported on mobile.`;
+  const introMessage = `type 'help' for a list of commands. please use computer for best (jk, any*) experience. not supported on mobile.`;
   const outputDiv = document.createElement("div");
   outputDiv.className = "prompt-line";
   outputDiv.innerHTML = introMessage
