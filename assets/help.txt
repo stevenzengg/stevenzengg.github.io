@@ -29,7 +29,7 @@ where [] denote optional params, and <> denote required params.
 
 
 
-note: projects (and some experiences) are unfinished - try "HELP" to see which ones
+note: projects are unfinished - try "HELP" to see which ones
 
 second note: these commands work with nested files/directories as params! although there is only 1 multi-layer
 directory in this site for now, and it's the easter egg :)

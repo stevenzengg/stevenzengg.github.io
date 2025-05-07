@@ -20,17 +20,14 @@ generated. in the most jarring use-case, this meant that every user on the app w
 same list of genres in the same order. to personalize this experience, i fully designed and
 implemented a widget ranking platform with multiple layers (ranking, aggregation) and interfaces
 (entry point, ranking strategy). as one of my first internships, i learned many skills on the fly.
-pertaining high level, i defined API contracts/responsibilities, data models, and microservices. pertaining low level, I designed
+pertaining high level, i defined API contracts/responsibilities, data models, and microservices. pertaining low level, i designed
 interfaces, abstract classes, used dependency injection, factory patterns, test-driven development, etc.
 
 
-
-
-i also created an example ranker and presented the final functionality to higher leadership.
-
-stay tuned for more edits! tbWritten:
-1. communication with science teams
-2. whole planning stage of project
+for this project, i owned most of the lifecycle. i planned my own deadlines, maintained my own agile board, and tracked my own
+work in daily stand ups. i also owned communicating with the science team on their needs, and iterating on my design as needed.
+at the end of the project, i created an example ranker and presented the final functionality to higher leadership, created
+slide shows and handoff documentation, and cleanly organized all my work onto a master document for future engineers + science teams.
 
 
 

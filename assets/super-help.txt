@@ -6,12 +6,12 @@ press enter :)
 
 
 
-i.e. type in "cat about.txt" and press enter!
+i.e. type in "cat experiences/google.txt" and press enter!
 
 
 
 
-finished content:
+finished(ish) content:
 
 cat about.txt ---------------- about me!
 
@@ -24,6 +24,10 @@ cat experiences/google.txt
 cat experiences/google-internship.txt
 
 cat experiences/amazon.txt
+
+cat experiences/carmax.txt
+
+cat experiences/at&t.txt
 
 run uptime.app --------------- fun program displaying my time on earth
 
@@ -46,7 +50,3 @@ cat projects/acrp.txt
 cat projects/venmo-automation.txt
 
 cat projects/dupe-deleter.txt
-
-cat experiences/carmax.txt
-
-cat experiences/at&t.txt

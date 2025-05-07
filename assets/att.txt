@@ -1,0 +1,43 @@
+july - december 2024
+
+
+
+
+Mass Markets AI at AT&T partners with departments across the business - fraud, logistics, support, sales, etc. to
+build practical data/AI solutions that help solve business needs / operational problems. the team owns the
+entire lifecycle of each project.
+
+
+
+
+
+i built an e2e ETL pipeline for the insurance fraud team, connecting field technician activity on the ground to warehouse 
+inventory records across AT&T's subsidiaries. I used multiple azure tables as SoT and set up event grid + azure functions to
+trigger recomputation when new data landed. computation was done via azure + databricks script, which outputted the results
+right to the insurance fraud's specific onedrive folder. i then triggered an e-mail via power automate/microsoft flow to alert
+the team of the updated tables. the script felt very similar to R + Rstudio, so thanks statistics professors!
+
+
+
+
+you might've also noticed that my team seems all over the place. every person has their own project, limiting knowledge share
+and the usefulness of our standups. our standups lacked structure and visibility, often deep diving into
+niche topics without context. i designed a tailored process and introduced regulated use of sprint boards, knowledge shares,
+sprint planning, retrospectives, and more efficient meeting strategies for all above including standups with adoption split
+into 4 phases. 
+
+
+
+in stage 1, i gathered feedback, refined buy-in, onboarded the team onto the plan. this was crucial - for example,
+i learned that many of our internal customers had constantly changing requirements + deadlines, leading me to encourage very loose
+timeboxes, discard backlog refinement rituals, and emphasize much more time on the planning/gathering scope tasks on our project 
+boards. in phase 2, i facilitated
+structured standups + sprints. in phase 3, i introduced regulated use of the sprint board and the first tier of collaborative
+rituals - sprint plannings and sprint reviews. while i ended up leaving before seeing phase 3 fully mature, i like to think
+that the team eventually moved to stage 4, which included sprint retrospectives and knowledge shares. i also like to think that
+this experience was proof that my engineering leadership development minor is quite useful (really just pretty works for PM).
+
+
+
+
+i will need to add some learnings here. stay tuned!

@@ -11,9 +11,9 @@ export function populateExperiences(experiences) {
     new File("amazon.txt", "assets/amazon.txt")
   );
   experiences.addChild(
-    new File("at&t.txt", "insurance fraud at at&t - coming soon")
+    new File("at&t.txt", "assets/att.txt")
   );
   experiences.addChild(
-    new File("carmax.txt", "dev velocity at carmax - coming soon")
+    new File("carmax.txt", "assets/carmax.txt")
   );
 }

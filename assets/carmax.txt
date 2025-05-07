@@ -1,0 +1,26 @@
+june - august 2021
+
+
+
+
+Order Processing Capabilities ...worked on carmax order processing. usually with these blogs, i start with a quick excerpt
+of what the team does - but at my first internship, i had a completely different side project, so let's dive into that instead!
+
+
+
+with a fellow intern, i hacked together a developer velocity measurement tool to stack rank all engineers and aggregate metrics
+at every level of the management chain. jk ...or am i? actually, my manager was very adamant that different teams specializing
+in different areas of the codebase would use the tool on an individual basis, so i should not worry about introducing said
+toxicity into the company. 
+
+
+
+anyhow, my partner took on the frontend while i took on the backend. i also lead the project lifecycle
+(of which i had to research first) - what a time. i created a simple project charter, scope, and general plan. i also scheduled stakeholder
+meetings with many engineers to iterate on what core functionalities this tool should aim for. with some general design out of the
+way (choose this tech stack bc of ___), i tracked my work via rally boards and user stories in kanbaan and implemented the entire API
+layer -> db representation -> db querying. i used git-hub webhooks to track commit data with secure encryption to populate the db. 
+
+
+
+i will need to fill in the blanks on tech and design. also need to talk about the annual CarMax hackathon that i won. stay tuned!
