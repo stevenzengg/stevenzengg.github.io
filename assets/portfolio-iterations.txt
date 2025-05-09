@@ -22,9 +22,14 @@ What features on this portfolio should I work on next?
 
 11. exit command
 
-12. navigating and altering input command from anywhere
+12. mobile support + navigating and altering input command from anywhere + allowing cmd/ctrl + 
+backspace to delete line or sentence, requires combination of <span> + <input>/<textarea>
 
 13. adding a GUI finder for non-tech peeps
+
+14. ascii cat!
+
+15. formatting concerns for accessibility/visibility?
 
 If you have any other ideas - or iterations on these ideas, please feel free to reach out!
 Check out contact.txt or feedback.app :)
