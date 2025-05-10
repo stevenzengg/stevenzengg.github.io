@@ -11,23 +11,33 @@ i.e. type in "cat experiences/google.txt" and press enter!
 
 
 
-finished(ish) content:
+========== BASIC INFO ====================
 
-cat about.txt ---------------- about me!
+cat about.txt --------------- about me!
 
-open resume.pdf -------------- my resume!
+open resume.pdf ------------- my resume!
 
-cat contact.txt -------------- get my contact info!
+cat contact.txt ------------- get my contact info!
 
-cat experiences/google.txt
 
-cat experiences/google-internship.txt
 
-cat experiences/amazon.txt
 
-cat experiences/carmax.txt
+========= EXPERIENCES ====================
 
-cat experiences/at&t.txt
+cat experiences/google.txt ------------ learn more about my time at pub/sub!
+
+cat experiences/google-internship.txt - i worked for gstore!
+
+cat experiences/amazon.txt ------------ i helped build the alexa video app!
+
+cat experiences/carmax.txt ------------ i built the premise for stack ranking at carmax!
+
+cat experiences/at&t.txt -------------- find out more about etl pipelines!
+
+
+
+
+========= FUN EXTRAS =====================
 
 run uptime.app --------------- fun program displaying my time on earth
 
@@ -38,8 +48,7 @@ run feedback.app ------------- send me feedback!
 
 
 
-
-unfinished content:
+========= PROJECTS (UNFINISHED) ==========
 
 cat projects/notivate.txt
 
