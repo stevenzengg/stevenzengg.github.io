@@ -50,7 +50,9 @@ export async function handleCommand(input) {
 
     case "tree":
       if (args.length !== 0) return "No arguments needed.";
-      return getCurrentDirectory().name + "\n\n" + buildTree(getCurrentDirectory());
+      return (
+        getCurrentDirectory().name + "\n\n" + buildTree(getCurrentDirectory())
+      );
 
     case "exit":
     // to be implemented!
@@ -94,11 +96,9 @@ async function catFile(filename) {
   if (node instanceof File) {
     if (node.content.endsWith(".txt")) {
       return await _fetchFileContent(node.content, filename);
-    } else {
-      return node.content;
     }
   }
-  return `Cannot cat ${filename} (unsupported format).`;
+  return `Cannot cat ${filename}. Try run (.app) or open (.pdf, .png, etc.) or cd (directory)... `;
 }
 
 function openFile(filename) {
@@ -111,7 +111,7 @@ function openFile(filename) {
     } else if (node.name.endsWith(".png")) {
       openImage(node.content);
     } else {
-      return "Corrupted file ${filename}...";
+      return `Cannot open ${filename}. Try cat (.txt) or run (.app) or cd (directory)...`;
     }
     return `Opening ${filename}...`;
   }
@@ -136,7 +136,7 @@ function runApp(appName, input) {
       return res;
     }
   }
-  return `Cannot run ${appName} (not an app).`;
+  return `Cannot run ${appName}. Try cat (.txt) or open (.pdf, .png, etc.) or cd (directory)...`;
 }
 
 function changeDirectory(foldername) {
@@ -156,7 +156,7 @@ function changeDirectory(foldername) {
     setCurrentDirectory(node);
     return "";
   }
-  return `Folder not found: ${foldername}`;
+  return `Cannot enter ${foldername}. Try cat (.txt) or run (.app) or open (.pdf, .png, etc.)...`;
 }
 
 function buildTree(folder, prefix = "") {
