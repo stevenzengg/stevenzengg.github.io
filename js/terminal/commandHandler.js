@@ -98,24 +98,23 @@ async function catFile(filename) {
       return await _fetchFileContent(node.content, filename);
     }
   }
-  return `Cannot cat ${filename}. Try run (.app) or open (.pdf, .png, etc.) or cd (directory)... `;
+  return `Cannot cat ${filename} - Try run (.app) or open (.pdf, .png, etc.) or cd (directory)... `;
 }
 
 function openFile(filename) {
   // perhaps add functionality to open other file types
   const node = getNodeByPath(filename);
   if (!node) return `File not found: ${filename}`;
-  if (node instanceof File) {
-    if (node.name.endsWith(".pdf")) {
-      openResume(node.content);
-    } else if (node.name.endsWith(".png")) {
-      openImage(node.content);
-    } else {
-      return `Cannot open ${filename}. Try cat (.txt) or run (.app) or cd (directory)...`;
-    }
-    return `Opening ${filename}...`;
+  if (!(node instanceof File))
+    return `Cannot open ${filename} - Try cat (.txt) or run (.app) or cd (directory)...`;
+  if (node.name.endsWith(".pdf")) {
+    openResume(node.content);
+  } else if (node.name.endsWith(".png")) {
+    openImage(node.content);
+  } else {
+    return `Cannot open ${filename} - Try cat (.txt) or run (.app) or cd (directory)...`;
   }
-  return `Cannot open ${filename} (unsupported format).`;
+  return `Opening ${filename}...`;
 }
 
 function runApp(appName, input) {
@@ -136,7 +135,7 @@ function runApp(appName, input) {
       return res;
     }
   }
-  return `Cannot run ${appName}. Try cat (.txt) or open (.pdf, .png, etc.) or cd (directory)...`;
+  return `Cannot run ${appName} - Try cat (.txt) or open (.pdf, .png, etc.) or cd (directory)...`;
 }
 
 function changeDirectory(foldername) {
@@ -156,7 +155,7 @@ function changeDirectory(foldername) {
     setCurrentDirectory(node);
     return "";
   }
-  return `Cannot enter ${foldername}. Try cat (.txt) or run (.app) or open (.pdf, .png, etc.)...`;
+  return `Cannot enter ${foldername} - Try cat (.txt) or run (.app) or open (.pdf, .png, etc.)...`;
 }
 
 function buildTree(folder, prefix = "") {
