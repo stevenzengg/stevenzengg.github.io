@@ -50,7 +50,7 @@ export async function handleCommand(input) {
 
     case "tree":
       if (args.length !== 0) return "No arguments needed.";
-      return "~\n\n" + buildTree(getCurrentDirectory());
+      return getCurrentDirectory().name + "\n\n" + buildTree(getCurrentDirectory());
 
     case "exit":
     // to be implemented!

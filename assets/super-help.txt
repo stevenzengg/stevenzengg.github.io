@@ -39,9 +39,11 @@ cat experiences/at&t.txt -------------- find out more about etl pipelines!
 
 ========= FUN EXTRAS =====================
 
-run uptime.app --------------- fun program displaying my time on earth
+tree ------------------------- see all files in a bird eye view from current folder!
 
-cat portfolio-iterations.txt - next steps 
+run uptime.app --------------- fun program displaying my time on earth!
+
+cat portfolio-iterations.txt - next steps!
 
 run feedback.app ------------- send me feedback!
 
