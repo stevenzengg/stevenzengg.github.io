@@ -31,5 +31,11 @@ backspace to delete line or sentence, requires combination of <span> + <input>/<
 
 15. formatting concerns for accessibility/visibility?
 
+16. note writing app, interactive so you can see what you write by catting it
+
+17. even better, if you could just create and delete files and directories
+
+18. history command
+
 If you have any other ideas - or iterations on these ideas, please feel free to reach out!
 Check out contact.txt or feedback.app :)
